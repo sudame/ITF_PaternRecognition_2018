@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544716262381.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1625229707",
+    "id" : "6CFF0DBE",
+    "lastKnownWriteTime" : 1544716132,
+    "last_content_update" : 1544716132,
+    "path" : "~/workspace/PatternRecognition/CNN/sa2_2.R",
+    "project_path" : "sa2_2.R",
+    "properties" : {
+        "cursorPosition" : "1,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

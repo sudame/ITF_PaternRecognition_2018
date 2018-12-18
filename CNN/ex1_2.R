@@ -9,7 +9,7 @@ ir <- data.frame(rbind(iris3[,,1], iris3[,,2], iris3[,,3]), species=factor(c(rep
 stdsamp <- c(sample(1:50, 25), sample(51:100, 25), sample(101:150, 25))
 tstsamp <- c(sample(1:50, 25), sample(51:100, 25), sample(101:150, 25))
 
-hidden = c(1:100)
+hidden = c(1:10)
 iter = c(1:10)
 stdtrave = rep(0, length(hidden))
 tsttrave = rep(0, length(hidden))
@@ -22,9 +22,9 @@ for(i in 1: length(hidden)){
   for(j in 1:length(iter)){
     mlpir <- nnet(species~., data=ir[stdsamp,], size=hidden[i], rang=0.5, decay=0.00, maxit=200)
     stdout = predict(mlpir, ir[stdsamp,], type="class")
-    tstout = predict(mlpir, ir[tstsamp,], type="class")
+    tstout = predict(mlpir, ir[-stdsamp,], type="class")
     stdtr[j, i] = mean(stdout != ir[stdsamp,]$species)
-    tsttr[j, i] = mean(tstout != ir[tstsamp,]$species)
+    tsttr[j, i] = mean(tstout != ir[-stdsamp,]$species)
     if(i > length(wtss)){
       wtss[i] <- mlpir$wts
     } else {

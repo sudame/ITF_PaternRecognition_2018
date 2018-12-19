@@ -9,6 +9,7 @@ test <- data.matrix(test)
 train.x <- train[, -1]
 train.y <- train[, 1]
 test_org <- test
+train_org <- train
 test <- test[, -1]
 
 train.x <- t(train.x/255)
@@ -48,6 +49,11 @@ tic <- proc.time()
 model.CNNtanhDrop <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y, ctx=devices, num.round=30, array.batch.size=100, learning.rate=0.05, momentum=0.9, wd=0.00001, eval.metric=mx.metric.accuracy, batch.end.callback=mx.callback.log.train.metric(100))
 
 print(proc.time() - tic)
+
+# 学習データによる正答率の出力
+preds <- predict(model.CNNtanhDrop, train.array, ctx=devices)
+pred.label <- max.col(t(preds)) - 1
+sum(diag(table(train_org[, 1], pred.label))) / 5000
 
 # テストデータによる正答率の出力
 preds <- predict(model.CNNtanhDrop, test.array, ctx=devices)

@@ -1,5 +1,7 @@
 remove(list = ls())
 
+library(mxnet)
+
 train <- read.csv('./data/short_prac_train.csv', header = TRUE)
 test <- read.csv('data/short_prac_test.csv', header = TRUE)
 

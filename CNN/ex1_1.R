@@ -40,4 +40,4 @@ for(i in 1: length(hidden)){
 # 誤識別率のグラフの表示
 plot(iter, trave, type = "l", main = "誤識別率の遷移", xlab = "隠れ素子の数", ylab = "誤識別率")
 
-hist(wtss[[length(hidden)]],breaks=seq(-100, 100, 5), freq=TRUE, main = "隠れ素子数10の場合の結合係数", xlab = "重み", ylab = "頻度")
+hist(wtss[[length(hidden)]],breaks=seq(-100, 100, 5),  freq=TRUE, main = "隠れ素子数10の場合の結合係数", xlab = "重み", ylab = "頻度")

@@ -46,7 +46,7 @@ mx.set.seed(0)
 devices = mx.cpu()
 tic <- proc.time()
 
-model.CNNtanhDrop <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y, ctx=devices, num.round=30, array.batch.size=100, learning.rate=0.05, momentum=0.9, wd=0.00001, eval.metric=mx.metric.accuracy, batch.end.callback=mx.callback.log.train.metric(100))
+model.Kaggle <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y, ctx=devices, num.round=30, array.batch.size=100, learning.rate=0.05, momentum=0.9, wd=0.00001, eval.metric=mx.metric.accuracy, batch.end.callback=mx.callback.log.train.metric(100))
 
 print(proc.time() - tic)
 
